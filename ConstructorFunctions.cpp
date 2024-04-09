@@ -4,6 +4,7 @@
 
 using namespace std;
 // Constructors are used to initialise our objects with informations
+// Destructors are used when an object is destroyed. 
 
 class Book // Contains blueprint of the 'Book' Data Type
 {
@@ -117,3 +118,36 @@ public:
   Book() 
     : title("Diary"), pages(100) {} // Member initializer list
 };
+
+/*
+--------------------------- Notes on Destructors --------------------------------------
+Like a constructor, it has the same name as the class and no return type, but is preceded
+by a ~ operator and takes no parameters:
+*/
+
+I.e ) // class House {
+private:
+  std::string location;
+  int rooms;
+
+public:
+  // Constructor with default parameters, print in ascending order
+  House(std::string loc = "New York", int num = 5) {
+    location = loc;
+    rooms = num;
+  }
+
+  void summary() {
+    std::cout << location << " house with " << rooms << " rooms.\n";
+  }
+
+  // Destructor
+  ~House() {
+    std::cout << "Moved away from " << location; // Print in descending order
+  }
+};
+/*
+An object of the class with its  "location" attribute set to "New York" 
+Will output " Moved away from New York".
+NB: Objects are destroyed in the reverse order of their creation.
+*/
