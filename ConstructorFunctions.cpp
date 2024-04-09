@@ -19,7 +19,7 @@ class Book // Contains blueprint of the 'Book' Data Type
             pages = aPages;
         }
 
-        Book () //This constructor is used if no info are inserted into 'Book'
+        Book () //This constructor is used if no info are inserted into 'Book', Default Constructor
         {
             title = "No title";
             author = "No author";
@@ -44,3 +44,7 @@ int main ()
     return 0;
 }
 // Next is object functions
+/* 
+-----------------------Extra Notes on Constructors-------------------------
+Default Constructors - Constructors that takes no paramters
+
