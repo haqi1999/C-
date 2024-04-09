@@ -25,6 +25,10 @@ class Book // Contains blueprint of the 'Book' Data Type
             author = "No author";
             pages = 0;
         }
+        /* Alternative way to print out the results in the Book inserted
+        void summary() {
+            std::cout << title << " Book Title " << author << " Name of author.\n";
+        */
 }; // Dont forget semicolon after curly brackets of the class
 
 int main ()
@@ -40,11 +44,76 @@ int main ()
     cout << book2.title << endl;
     cout << book3.title << endl;
     cout << book1.author << endl;
+   // book1.summary();
 
     return 0;
 }
 // Next is object functions
+
 /* 
 -----------------------Extra Notes on Constructors-------------------------
 Default Constructors - Constructors that takes no paramters
+Constructor can be defined outside class definition using ; "ClassName :: "
+*/
+    
+i.e) //Constructor made outside the class
+House::House() {
+  location = "New York";
+  rooms = 5;
+}
 
+i.e)  // A constructor acting as default and a constructor with paramteters
+class House {
+private:
+  std::string location;
+  int rooms;
+
+public:
+  // Constructor with default parameters
+  House(std::string loc = "New York", int num = 5) {
+    location = loc;
+    rooms = num;
+  }
+
+  void summary() {
+    std::cout << location << " house with " << rooms << " rooms.\n";
+  }
+};
+
+/* 
+NB: When calling a constructor with multiple default parameters, 
+the compiler will match the arguments starting from the leftmost parameter. Therefore
+a constructor call like this is not possible because it skips over the first parameter:
+*/
+House big_house(10);    // Error: no constructor to handle House(int)
+
+/* 
+A Member Initiliser list is required when dealing with const values or reference variables.
+Since these data types needs to be initialised first before declaring it in the code. The 
+Member initialiser list begins with a colon ":",and then lists each attribute and the 
+initial value for that attribute. Each attribute in the list is separated by a comma. 
+
+NB: Don’t forget to add the brackets {} after the member initializer list!
+Any code can still be placed into the constructor body.
+*/
+
+I.e ) // Following code won't work sice the reference variables have not been initialised
+class Book {
+    private:
+      const std::string title;
+      const int pages;
+    public:
+      Book() {
+        title = "Diary";    // Error: const variables can't be assigned to
+        pages = 100;    // Error: const variables can't be assigned to
+      };
+
+I.e) // Solution to the above problem
+class Book {
+private:
+  const std::string title;
+  const int pages;
+public:
+  Book() 
+    : title("Diary"), pages(100) {} // Member initializer list
+};
