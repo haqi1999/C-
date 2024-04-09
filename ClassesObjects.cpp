@@ -57,3 +57,58 @@ public:
 void School::banner() {
   std::cout << name << " is " << age << " years old.\n";
 }
+*/
+/*
+------------------------ Enscapulation/Getter/Setter-----------------------------------
+To Hide sensitive details in the "class" objects. This can be done by using the private 
+command in the respective classes. 
+    
+There is a way to retun the private attributes outside the class blueprints. And that is
+to use the Accessor Functions (Also known as getter). (Public function) 
+
+The contrast of Accessor Functions is Mutator Functions (Also known as setter). Sets the 
+value of the private member variable.
+
+NB: Accessor methods should always have a return type that matches the type of the member 
+variable they’re accessing.
+
+Example of GETTER : Accessing the private time through public access specifier.
+class Clock {
+private:
+  int time = 1200;
+
+public:
+  // Accessor function for time
+  int getTime() {
+    return time;
+  }
+};
+
+int main() {
+  Clock alarm;
+  std::cout << alarm.getTime(); // Output: 1200
+}
+
+Example of SETTER :
+class Clock {
+private:
+  int time = 1200;
+
+public:
+  // Accessor function for time
+  int getTime() {
+    return time;
+  }
+
+  // Mutator function for time
+  void setTime(int new_time) {
+    time = new_time;
+  }
+};
+
+int main() {
+  Clock alarm;
+  alarm.setTime(930);
+  std::cout << alarm.getTime(); // Output: 930
+}
+*/
