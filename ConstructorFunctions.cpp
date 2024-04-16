@@ -125,7 +125,8 @@ Like a constructor, it has the same name as the class and no return type, but is
 by a ~ operator and takes no parameters:
 */
 
-I.e ) // class House {
+I.e ) // 
+class House {
 private:
   std::string location;
   int rooms;
