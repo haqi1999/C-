@@ -58,3 +58,45 @@ Public Inheritance : Access specifiers of the base class members stay the same i
 Protected Inheritance : public and proteced members of the base class become protected members of the derived class.
 Private Inheritance : All base class members become private members of the derived class
 */
+
+/* Polymorphism
+When a derived class override methods from its base class. This is due to same name given to the method in the derived 
+class like it was in the base class. It will prioritise the method in each own respective classes even if it has inherited
+a method with the same name from the base class. NB : Name of the method have to be the same.
+*/
+
+i.e) // Example of Polymorphism
+#include <iostream>
+
+class Animal {
+public:
+  void action() {
+    std::cout << "The animal does something.\n";
+  }
+};
+
+class Fish: public Animal {
+public:
+  void action() { 
+    std::cout << "Fish swim.\n"; // Method "actiom" is polymorphismed into "Fish Swim" here
+  }
+};
+
+class Bird: public Animal {
+public:
+  void action() {
+    std::cout << "Birds fly.\n"; // Method "actiom" is polymorphismed into "Birds fly" here
+  }
+};
+
+int main() {
+  Animal newAnimal;
+  Fish newFish;
+  Bird newBird;
+
+  newAnimal.action();
+  newFish.action();
+  newBird.action();
+
+  return 0;
+}
