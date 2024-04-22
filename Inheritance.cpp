@@ -7,7 +7,7 @@ using namespace std;
 // just put ":public nameofclass" next to the class that wants to inherit it
 // space between the colon and the type/name of the class is important as it will affect the code itself
 // the existing funtion in a class can be overrided in another class even if it has the same name
-// Sub class inherit from the Super Class
+// Sub class inherit from the Super Class. Derived Class inherit from Base Class.
 class Chef 
 {
     public:
@@ -52,3 +52,9 @@ int main ()
 
     return 0;
 }
+
+/* Types of Inheritance
+Public Inheritance : Access specifiers of the base class members stay the same in the derived class. Most common type.
+Protected Inheritance : public and proteced members of the base class become protected members of the derived class.
+Private Inheritance : All base class members become private members of the derived class
+*/
