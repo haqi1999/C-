@@ -55,6 +55,8 @@ int main ()
 -----------------------Extra Notes on Constructors-------------------------
 Default Constructors - Constructors that takes no paramters
 Constructor can be defined outside class definition using ; "ClassName :: "
+Derived class = Child Class
+Base Class = Parent Class (Classes that was inherited from)
 */
     
 i.e) //Constructor made outside the class
@@ -119,6 +121,57 @@ public:
     : title("Diary"), pages(100) {} // Member initializer list
 };
 
+/* Constructor Inheritance
+The derived class can inherit the constructor of it base class. A derived class can also
+initialise the private attributes of its base class by using the base class constructor 
+in a member initialiser list
+*/
+i.e) // Example of Constructor Inheritance
+#include <iostream>
+
+// Base class
+class Animal {
+private:
+  std::string gender;
+  int age;
+
+public:
+  Animal(std::string new_gender, int new_age)
+    : gender(new_gender), age(new_age) {}
+};
+
+// Derived class
+class Dog: public Animal  {
+private:
+  std::string breed;
+
+public:
+  // Call base class constructor
+  Dog(std::string new_gender, int new_age, std::string new_breed)
+    : Animal(new_gender, new_age), breed(new_breed) {}
+
+  void sound() {
+    std::cout << "Woof\n";
+  }
+};
+
+int main() {
+  // Calls Dog(string, int, string) constructor
+  Dog buddy("male", 8, "Husky");
+  
+  // Output: Woof
+  buddy.sound();
+
+  return 0;
+}
+
+/* Multilevel Inheritance/Chain Inheritance
+The "most base" class is alwaysa constructed first. The order of class construction goes
+from the parent to the child. All attributes in a chain inheritance a derived class 
+contains all attributes from all the base classes before it
+*/
+
+
 /*
 --------------------------- Notes on Destructors --------------------------------------
 Like a constructor, it has the same name as the class and no return type, but is preceded
@@ -152,3 +205,5 @@ An object of the class with its  "location" attribute set to "New York"
 Will output " Moved away from New York".
 NB: Objects are destroyed in the reverse order of their creation.
 */
+
+
