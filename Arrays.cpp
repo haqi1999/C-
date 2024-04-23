@@ -27,6 +27,50 @@ int main ()
           {10, 11, 12, 13, 14}   /* initializers for third row */
         };
 
+    /* Iterating in Arrays
+        Use for loops to do so. Make sure iterate to one less than the length of the array as the 
+        indexing starts from 0.
+    */
+    
+        int fibonacci[5] = {0, 1, 1, 2, 3};
+        for (int i = 0; i < 5; i++) {
+          std::cout << fibonacci[i];
+        } // Outputs: 01123
+    
+    /* for-each loops
+        using for loops but the indexing is the use of the array element itself as the following
+    */
+    
+        int fibonacci[5] = {0, 1, 1, 2, 3};
+        for (int num: fibonacci) {
+          std::cout << num;
+        } // Outputs: 01123
+
+    /* Nested loops for traversing through Multidimensional arrays
+    NB : the outside loop is responsible for iterating the row in an array while the inside loop is
+    responsible for the columns in an array
+    */
+
+        char game[3][3] = {
+          {'x', 'o', 'o'} , 
+          {'o', 'x', 'x'} , 
+          {'o', 'o', 'x'}  
+        };
+        
+        for (int i = 0; i < 3; i++) {
+          for (int j = 0; j < 3; j++) {
+            std::cout << game[i][j];
+          }
+          std::cout << "\n";
+        } 
+        /* output
+            xoo
+            oxx
+            oox
+        */
+
+
+    
     
     return 0;
     
